@@ -13,27 +13,37 @@ body {
   padding: 0;
 }
 
-.title {
+.title-container {
   position: fixed;
   top: 20px;
   left: 20px;
+  z-index: 1000;
+}
+
+.main-title {
   color: var(--orange);
   font-size: 1.5rem;
   font-weight: bold;
-  z-index: 1000;
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  margin-bottom: 5px;
+}
+
+.authors {
+  color: #ddd;
+  font-size: 0.9rem;
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
 }
 
 #globeViz {
-  width: calc(100vw - 500px);
+  width: 100vw;
   height: 100vh;
-  float: left;
+  transition: width 0.3s ease;
 }
 
 #popup {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -500px;
   width: 500px;
   height: 100vh;
   background: linear-gradient(135deg, rgba(45, 0, 75, 0.95) 0%, rgba(70, 0, 110, 0.95) 100%);
@@ -44,6 +54,11 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: right 0.3s ease;
+}
+
+#popup.visible {
+  right: 0;
 }
 
 .btn-close-custom {
